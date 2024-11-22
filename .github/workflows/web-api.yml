@@ -15,9 +15,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout
     - name: Setup .NET
-      uses: actions/setup-dotnet@v4
+      uses: actions/setup-dotnet
       with:
         dotnet-version: 9.0.x
     - name: Restore dependencies
@@ -26,3 +26,10 @@ jobs:
       run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
+    - name: Publish
+      run: dotnet publish UrlShortener.WebApi -c Release -o ${{env.DOTNET_ROOT}}/myapp
+    - name: Upload artifacts
+      uses: actions/upload-artifact
+      with:
+        name: myapp
+        path: ${{env.DOTNET_ROOT}}/myapp
