@@ -39,7 +39,7 @@ jobs:
             echo "Azure Resource Group Created"
 
       - name: Deploy
-        uses: azure/arm-deploy@v3.3
+        uses: azure/arm-deploy@v2
         with:
           resourceGroupName: ${{ vars.RESOURCE_GROUP_NAME }}
           template: infrastructure/main.bicep
@@ -66,7 +66,7 @@ jobs:
             echo "Azure Resource Group Created"
 
       - name: Deploy
-        uses: azure/arm-deploy@v3.3
+        uses: azure/arm-deploy@v2
         with:
           resourceGroupName: ${{ vars.RESOURCE_GROUP_NAME }}
           template: infrastructure/main.bicep
@@ -95,7 +95,7 @@ jobs:
             echo "Azure Resource Group Created"
 
       - name: Deploy
-        uses: azure/arm-deploy@v3.3
+        uses: azure/arm-deploy@v2
         with:
           resourceGroupName: ${{ vars.RESOURCE_GROUP_NAME }}
           template: infrastructure/main.bicep
