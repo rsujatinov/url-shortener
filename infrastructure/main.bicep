@@ -17,5 +17,23 @@ module apiService 'modules/compute/appservice.bicep' = {
     appName: 'web-api-${uid}'
     appServicePlanName: 'plan-web-api-${uid}'
     location: location
+    keyVaultName: keyVault.outputs.name
   }
+  dependsOn: [
+    keyVault
+  ]
+}
+
+module keyVaultRoleAssignment 'modules/secrets/key-vault-role-assignment.bicep' = {
+  name: 'keyVaultRoleAssignmentDeployment'
+  params: {
+    keyVaultName: keyVault.outputs.name
+    principalIds: [
+      apiService.outputs.appServiceId
+    ]
+  }
+  dependsOn: [
+    keyVault
+    apiService
+  ]
 }
