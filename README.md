@@ -44,4 +44,10 @@ az ad sp create-for-rbac --name "GitHub Actions SP" \
                          --sdk-auth
 ```
 
+#### Assign Infrastructure Deployer Role
+
+```bash
+ter
+```
+
 #### Configure a federated identity credential on an app
