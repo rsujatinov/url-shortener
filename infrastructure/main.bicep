@@ -29,7 +29,7 @@ module keyVaultRoleAssignment 'modules/secrets/key-vault-role-assignment.bicep' 
   params: {
     keyVaultName: keyVault.outputs.name
     principalIds: [
-      apiService.outputs.appServiceId
+      apiService.outputs.principalId
     ]
   }
   dependsOn: [
